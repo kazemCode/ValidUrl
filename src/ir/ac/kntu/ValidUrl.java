@@ -9,7 +9,7 @@ public class ValidUrl {
         Scanner scanner = new Scanner(System.in);
         String url = scanner.nextLine();
         scanner.close();
-        String regex = "https?:\\/\\/[a-z]+(\\.[a-z]+){1,3}(\\/\\?|(\\/[a-z]+){0,5}\\?|(\\/[a-z]+){0,5}$)($|email=[a-zA-Z][a-zA-Z0-9.]+@[a-z]+\\.[a-z]+|mobile=09[0-9]{9}|stNo=(99|400|401|402)[0-9]{5,6}|\\w+=\\w+)(&(email=[a-zA-Z][a-zA-Z0-9.]+@[a-z]+\\.[a-z]+|mobile=09[0-9]{9}|stNo=(99|400|401|402)[0-9]{5,6}|\\w+=\\w+))*";
+        String regex = "https?:\\/\\/[a-z]+(\\.[a-z]+){1,3}(\\/\\?|(\\/[a-z]+){0,5}\\?|(\\/[a-z]+){0,5}$)($|mobile=09[0-9]{9}|stNo=(99|400|401|402)[0-9]{5,6}|(?!mobile)[\\w]+=[\\w.@]+)(&(mobile=09[0-9]{9}|stNo=(99|400|401|402)[0-9]{5,6}|(?!mobile)[\\w]+=[\\w.@]+))*";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(url);
         if(matcher.matches()){
